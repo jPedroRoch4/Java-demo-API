@@ -1,4 +1,4 @@
-package DemoUsers;
+package com.jp.java.DemoAPI1.Pessoas;
 
 import java.util.List;
 
@@ -14,47 +14,47 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/Users")
-public class UserController {
+@RequestMapping("/pessoas")
+public class PessoasController {
 
 	@Autowired
-	private UserRepository userRepository;
+	private PessoasRepository pessoasRepository;
 
 	@GetMapping
-	public List<User> getAll() {
-		return userRepository.findAll();
+	public List<Pessoas> getAll() {
+		return pessoasRepository.findAll();
 	}
 
 	@GetMapping("/{id}")
-	public User getOne(@PathVariable Long id) {
-		if (userRepository.existsById(id)) {
-			return userRepository.findById(id).get();
+	public Pessoas getOne(@PathVariable Long id) {
+		if (pessoasRepository.existsById(id)) {
+			return pessoasRepository.findById(id).get();
 		}
 		return null;
 	}
 
 	@PostMapping
-	public User post(@RequestBody User user) {
-		return userRepository.save(user);
+	public Pessoas post(@RequestBody Pessoas Pessoas) {
+		return pessoasRepository.save(Pessoas);
 
 	}
 
 	@DeleteMapping(path = "/{id}", produces = "application/json")
 	public String delete(@PathVariable Long id) {
-		if (userRepository.existsById(id)) {
-			userRepository.deleteById(id);
+		if (pessoasRepository.existsById(id)) {
+			pessoasRepository.deleteById(id);
 			return "{\"status\" : \"deleted\"}";
 		}
 		return "{\"status\" : \"error\"}";
 	}
 
 	@PutMapping(path = "/{id}")
-	public User put(@PathVariable Long id, @RequestBody User user) {
+	public Pessoas put(@PathVariable Long id, @RequestBody Pessoas pessoas) {
 		return null;
-}
+	}
 
 	@PatchMapping(path = "/{id}")
-	public User patch(@PathVariable Long id, @RequestBody User user) {
+	public Pessoas patch(@PathVariable Long id, @RequestBody Pessoas pessoas) {
 		return null;
 	}
 

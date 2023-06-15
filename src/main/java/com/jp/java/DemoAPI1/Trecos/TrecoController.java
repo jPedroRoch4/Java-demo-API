@@ -1,4 +1,4 @@
-package com.jp.java.DemoAPI1;
+package com.jp.java.DemoAPI1.Trecos;
 
 import java.util.List;
 
